@@ -17,19 +17,19 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-        return ("It's a tie! The Computer chose: " + computerSelection.toString());
+        return ("It's a tie! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "rock"  && computerSelection.toLowerCase() == "scissors") {
-        return("You won! The Computer chose: " + computerSelection.toString());
+        return("You won! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "rock"  && computerSelection.toLowerCase() == "paper") {
-        return("You lost! The Computer chose: " + computerSelection.toString());
+        return("You lost! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "paper"  && computerSelection.toLowerCase() == "scissors") {
-        return("You lost! The Computer chose: " + computerSelection.toString());
+        return("You lost! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "paper"  && computerSelection.toLowerCase() == "rock") {
-        return("You Won! The Computer chose: " + computerSelection.toString());
+        return("You Won! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "scissors"  && computerSelection.toLowerCase() == "rock") {
-        return("You lost! The Computer chose: " + computerSelection.toString());
+        return("You lost! The Computer chose: " + computerSelection);
     } else if (playerSelection.toLowerCase() == "scissors"  && computerSelection.toLowerCase() == "paper") {
-        return("You Won! The Computer chose: " + computerSelection.toString());
+        return("You Won! The Computer chose: " + computerSelection);
     }
 }
 
