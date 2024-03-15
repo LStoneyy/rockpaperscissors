@@ -36,13 +36,13 @@ function playRound(playerSelection, computerSelection) {
 
 
 function playGame(userinput, computerinput) {
-    
-    
-    userinput = prompt("What is you choice?");
-    playerselect = userinput.toString();
-    computerinput = getComputerChoice();
+    for (let index = 0; index < 5; index++) {
+        userinput = prompt("What is you choice?");
+        playerselect = userinput.toString();
+        computerinput = getComputerChoice();
 
-    console.log(playRound(playerselect, computerinput));
+        console.log(playRound(playerselect, computerinput));
+    }
 }
 
 playGame();
