@@ -33,7 +33,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "Paper";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
 
+
+function playGame(userinput, computerinput) {
+    
+    
+    userinput = prompt("What is you choice?");
+    playerselect = userinput.toString();
+    computerinput = getComputerChoice();
+
+    console.log(playRound(playerselect, computerinput));
+}
+
+playGame();
