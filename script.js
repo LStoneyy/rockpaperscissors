@@ -1,37 +1,54 @@
 function getComputerChoice() {
-    const rock = "Rock";
-    const scissors = "Scissors";
-    const paper = "Paper";
 
-    let randomnr = Math.random();
+    const randomnr = Math.random();
+    const range = 1 / 3;
 
-    if (randomnr < (1 / 3)) {
-        return rock;
-    } else if (randomnr <= (2 / 3)) {
-        return scissors;
-    } else if (randomnr > (2 / 3)) {
-        return paper;
+    if (randomnr < range) {
+        return "Rock";
+    } else if (randomnr < 2 * range) {
+        return "Scissors";
+    } else {
+        return "Paper";
     }
 }
 
 let wins = 0;
-let computerSelection = getComputerChoice();
+let cp_wins = 0;
 let playerSelection;
-let result;
+
 
 function setPlayerSelection(input) {
     playerSelection = input.toLowerCase();
-    result = playRound(playerSelection, computerSelection);
+    let computerSelection = getComputerChoice();
+    let result_of_round = playRound(playerSelection, computerSelection);
 
-    if (result === "You won! The Computer chose: " + computerSelection) {
+    let winsDiv = document.querySelector(".wins");
+    let cpWinsDiv = document.querySelector(".cp-wins");
+    let resultround = document.querySelector(".resultround");
+    let result = document.querySelector(".result");
+
+
+    if (result_of_round === "You won! The Computer chose: " + computerSelection) {
         wins++;
+        winsDiv.textContent = wins;
+        resultround.textContent = result_of_round;
+    } else if (result_of_round === "You lost! The Computer chose: " + computerSelection) {
+        cp_wins++;
+        cpWinsDiv.textContent = cp_wins;
+        resultround.textContent = result_of_round;
     }
-    if (wins >= 3) {
-        console.log("You are the winner! You won " + wins + " times.")
-    } else if (wins == 1) {
-        console.log("Sorry, you lost! You only won " + wins + " time.")
-    } else {
-        console.log("Sorry, you lost! You only won " + wins + " times.")
+
+
+    if (wins === 3) {
+        winsDiv.textContent = "";
+        cpWinsDiv.textContent = "";
+        resultround.textContent = "";
+        result.textContent = "Congratulations! You won the game!";
+    } else if (cp_wins === 3) {
+        winsDiv.textContent = "";
+        cpWinsDiv.textContent = "";
+        resultround.textContent = "";
+        result.textContent = "Sorry, the computer won the game.";
     }
 }
 
