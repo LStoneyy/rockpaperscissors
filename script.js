@@ -14,37 +14,41 @@ function getComputerChoice() {
 
 let wins = 0;
 let cp_wins = 0;
-let playerSelection;
-
+let ties = 0;
 
 function setPlayerSelection(input) {
-    playerSelection = input.toLowerCase();
-    let computerSelection = getComputerChoice();
-    let result_of_round = playRound(playerSelection, computerSelection);
+    const playerSelection = input.toLowerCase();
+    playGame(playerSelection);
+}
 
-    let winsDiv = document.querySelector(".wins");
-    let cpWinsDiv = document.querySelector(".cp-wins");
-    let resultround = document.querySelector(".resultround");
-    let result = document.querySelector(".result");
+function playGame(playerSelection) {
+    const computerSelection = getComputerChoice();
+    const result_of_round = playRound(playerSelection, computerSelection);
 
+    const winsDiv = document.querySelector(".wins");
+    const cpWinsDiv = document.querySelector(".cp-wins");
+    const resultround = document.querySelector(".resultround");
+    const result = document.querySelector(".result");
 
-    if (result_of_round === "You won! The Computer chose: " + computerSelection) {
+    resultround.textContent = result_of_round;
+
+    if (result_of_round.includes("You won!")) {
         wins++;
-        winsDiv.textContent = wins;
-        resultround.textContent = result_of_round;
-    } else if (result_of_round === "You lost! The Computer chose: " + computerSelection) {
+    } else if (result_of_round.includes("You lost!")) {
         cp_wins++;
-        cpWinsDiv.textContent = cp_wins;
-        resultround.textContent = result_of_round;
+    } else {
+        ties++;
     }
 
+    winsDiv.textContent = wins;
+    cpWinsDiv.textContent = cp_wins;
 
-    if (wins === 3) {
+    if (wins >= 5) {
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
         result.textContent = "Congratulations! You won the game!";
-    } else if (cp_wins === 3) {
+    } else if (cp_wins >= 5) {
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
@@ -70,4 +74,3 @@ function playRound(playerSelection, computerSelection) {
         return ("You Won! The Computer chose: " + computerSelection);
     }
 }
-
