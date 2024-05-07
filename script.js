@@ -39,21 +39,18 @@ function playGame(userinput, computerinput) {
 
     let wins = 0;
 
-    for (let index = 0; index < 5; index++) {
-        
-        userinput = prompt("What is you choice?");
-        playerselect = userinput.toString();
-        computerinput = getComputerChoice();
-        let result = playRound(playerselect, computerinput);
+    userinput = prompt("What is you choice?");
+    playerselect = userinput.toString();
+    computerinput = getComputerChoice();
+    let result = playRound(playerselect, computerinput);
 
-        console.log(result);
+    console.log(result);
 
-        if (result === "You won! The Computer chose: " + computerinput) {
-            wins++;
-        }
+    if (result === "You won! The Computer chose: " + computerinput) {
+        wins++;
     }
 
-    if (wins >= 3){
+    if (wins >= 3) {
         console.log("You are the winner! You won " + wins + " times.")
     } else if (wins == 1) {
         console.log("Sorry, you lost! You only won " + wins + " time.")
