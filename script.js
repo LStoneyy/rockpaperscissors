@@ -35,7 +35,6 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-function playGame(userinput, computerinput) {
 
     let wins = 0;
 
@@ -57,6 +56,5 @@ function playGame(userinput, computerinput) {
     } else {
         console.log("Sorry, you lost! You only won " + wins + " times.")
     }
-}
 
 // playGame();
