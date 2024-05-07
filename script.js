@@ -62,4 +62,4 @@ function playGame(userinput, computerinput) {
     }
 }
 
-playGame();
+// playGame();
