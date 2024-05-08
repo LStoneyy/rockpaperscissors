@@ -30,10 +30,26 @@ function playGame(playerSelection) {
     console.log(playerSelection, computerSelection, result_of_round);
 
     const roundDiv = document.querySelector(".round");
+    const cpChoiceImg = document.querySelector(".cp-choice img");
     const winsDiv = document.querySelector(".wins");
     const cpWinsDiv = document.querySelector(".cp-wins");
     const resultround = document.querySelector(".resultround");
     const result = document.querySelector(".result");
+
+    switch (computerSelection) {
+        case "Rock":
+            cpChoiceImg.src = "./static/stone.svg";
+            break;
+        case "Paper":
+            cpChoiceImg.src = "./static/paper.svg";
+            break;
+        case "Scissors":
+            cpChoiceImg.src = "./static/scissors.svg";
+            break;
+        default:
+            cpChoiceImg.src = "./static/questionmark.svg";
+            break;
+    }
 
     resultround.textContent = result_of_round;
 
@@ -48,18 +64,19 @@ function playGame(playerSelection) {
         rounds++;
     }
 
+
     roundDiv.textContent = "Round: " + rounds;
     winsDiv.textContent = wins;
     cpWinsDiv.textContent = cp_wins;
 
     if (wins >= 5) {
-        roundDiv.textContent = "";
+        roundDiv.textContent = "Congrats!";
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
         result.textContent = "Congratulations! You won the game! Click restart to start over";
     } else if (cp_wins >= 5) {
-        roundDiv.textContent = "";
+        roundDiv.textContent = "You Lost!";
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
@@ -73,13 +90,13 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection) {
-        return "It's a tie! The Computer chose: " + computerSelection;
+        return "It's a tie!";
     } else if ((playerSelection === "rock" && computerSelection === "scissors") ||
                (playerSelection === "paper" && computerSelection === "rock") ||
                (playerSelection === "scissors" && computerSelection === "paper")) {
-        return "You won! The Computer chose: " + computerSelection;
+        return "You won!";
     } else {
-        return "You lost! The Computer chose: " + computerSelection;
+        return "You lost!";
     }
 }
 
