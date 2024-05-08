@@ -57,13 +57,13 @@ function playGame(playerSelection) {
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
-        result.textContent = "Congratulations! You won the game! Reload the page to restart";
+        result.textContent = "Congratulations! You won the game! Click restart to start over";
     } else if (cp_wins >= 5) {
         roundDiv.textContent = "";
         winsDiv.textContent = "";
         cpWinsDiv.textContent = "";
         resultround.textContent = "";
-        result.textContent = "Sorry, the computer won the game. Reload the page to restart";
+        result.textContent = "Sorry, the computer won the game. Click restart to start over";
     }
 }
 
@@ -81,4 +81,8 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "You lost! The Computer chose: " + computerSelection;
     }
+}
+
+function reloadPage() {
+    location.reload();
 }
