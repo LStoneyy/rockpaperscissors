@@ -31,27 +31,33 @@
 
     <div class="choices">
         <div class="yourchoice">
-        <h2>Your choices</h2>
-        <div class="buttons">
-            <button class="button" id="btn-r" onclick="setPlayerSelection('rock')"><img src="./static/stone.svg" alt="Weight Symbol"></button>    
-            <button class="button" id="btn-p" onclick="setPlayerSelection('paper')"><img src="./static/paper.svg" alt="Paper Symbol"></button>
-            <button class="button" id="btn-s" onclick="setPlayerSelection('scissors')"><img src="./static/scissors.svg" alt="Scissors Symbol"></button>
-        </div>
+            <h2>Your choices</h2>
+            <div class="buttons">
+                <button class="button" id="btn-r" onclick="setPlayerSelection('rock')"><img src="./static/stone.svg"
+                        alt="Weight Symbol"></button>
+                <button class="button" id="btn-p" onclick="setPlayerSelection('paper')"><img src="./static/paper.svg"
+                        alt="Paper Symbol"></button>
+                <button class="button" id="btn-s" onclick="setPlayerSelection('scissors')"><img
+                        src="./static/scissors.svg" alt="Scissors Symbol"></button>
+            </div>
+            <div class="wins"> Wins</div>
         </div>
         <div class="cpchoice">
             <h2>Computer's choice</h2>
             <div class="cp-choice"><img src="./static/questionmark.svg" alt=""></div>
+            <div class="cp-wins"> Wins</div>
         </div>
     </div>
 
-    <div>
-        <div class="wins"></div>
-        <div class="cp-wins"></div>
-        <div class="resultround"></div>
+    </div>
+    <div class="resultcount">
+        <div class="resultround">Result</div>
         <div class="result"></div>
     </div>
 
-    <button class="button" onclick="reloadPage()">Restart</button>
+    <div class="restart">
+        <button class="button" onclick="reloadPage()">Restart</button>
+    </div>
 </body>
 
 </html>
